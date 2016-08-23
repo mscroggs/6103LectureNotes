@@ -1,0 +1,140 @@
+\subsection{A special case}
+Let us consider the derivative of the logarithm of some general function $f(x)$,:
+\begin{align*}
+\frac{d}{dx}\left(\ln(f(x))\right)&=\frac{1}{f(x)}\cdot\frac{d}{dx}\left(f(x)\right)\\
+&=\frac{f'(x)}{f(x)}
+\end{align*}
+This implies that:
+\begin{in_a_box}
+\[\int \frac{f'(x)}{f(x)}\dx=\ln(f(x))+c\]
+\end{in_a_box}
+
+\begin{example}
+Consider the the following integral:
+\[I=\int \frac{2x+5}{x^2+5x+3}\dx.\]
+Now, if we choose $f(x)=x^2+5x+3$, then $f'(x)=2x+5$. So, if we differentiate $\ln(f(x))$, in this case we have
+\[\frac{d}{dx}\left[\ln(x^2+5x+3)\right]=\frac{2x+5}{x^2+5x+3},\]
+by the chain rule. Thus, we know the integral must be
+\[I=\ln(x^2+5x+3)+c.\]
+\end{example}
+
+\begin{example}
+Consider the following integral:
+\[I=\int \frac{3}{2x+2}\dx.\]
+Now, if we choose $f(x)=2x+2$ then $f'(x)=2$. However, the numerator of the integrand is 3. Not to worry, as we can simply re-write or manipulate the initial integral as follows:
+\[I=\int \frac{3}{2x+2}\dx=3\int\frac{1}{2}\frac{2}{2x+2}\dx=\frac{3}{2}\int\frac{2}{2x+2}\dx.\]
+Since $3/2$ is a constant, which we are able to take out of the integral sign, we need not worry about this and can proceed with the integration using what we have learnt above, giving
+\[I=\frac{3}{2}\ln(2x+2)+c.\]
+To check, we differentiate the above expression, so
+\[\frac{dI}{dx}=\frac{d}{dx}\left[\frac{3}{2}\ln(2x+2)+c\right]=\frac{3}{2}\cdot\frac{1}{2x+2}\cdot2,\]
+which is correct!
+\end{example}
+
+This ``special case" is an example of a method called {\it substitution}, and is not limited to integrals which give you logarithms.
+
+\subsection{Substitution}
+We can use substitution to convert a complicated integral into a simple one.
+
+\begin{example}\label{first-sub-example}
+We want to find $$\int(2x+3)^{100}\dx.$$ We make the substitution
+\[u=2x+3.\]
+This means that \[\frac{du}{dx}=2\] and so \[dx=\frac{1}{2}du.\]
+So we calculate the integral as follows:
+\begin{eqnarray*}
+\int (2x+3)^{100}\dx &=& \int u^{100}\cdot \frac{1}{2}\dx[u] \\
+&=& \frac{1}{2}\int u^{100}\dx[u] \\
+&=& \frac{1}{2}\cdot\frac{1}{101}u^{101} \\
+&=& \frac{1}{202}(2x+3)^{101}+c.
+\end{eqnarray*}
+We can check the result by performing the following differentiation:
+\[\frac{d}{dx}\left[\frac{1}{202}(2x+3)^{101}+c\right]=\frac{101}{202}(2x+3)^{100}\cdot2=(2x+3)^{100},\]
+which is correct.
+\end{example}
+
+$\frac{dx}{du}$ is not really a fraction so cannot really be split up as we did here. What we are actually doing is using the following:
+
+\begin{thing}{Integration by Substitution}
+$$\int_{a}^{b} f(u(x))\dx = \int_{u(a)}^{u(b)} f(u)\frac{dx}{du}\dx[u].$$
+\end{thing}
+
+Substituting the $u$ and $\frac{dx}{du}$ into this formula is equivalent to the splitting up of $\frac{dx}{du}$ which we did. The splitting
+method gives the correct answer and can be thought of as an easier way to remember the method we are actually using.
+
+\begin{example}
+\[\int x(x+1)^{50}\dx\]
+Try the substitution $u=x+1$ (i.e. $x=u-1$). This gives:
+\[\frac{du}{dx}=1\]
+\[dx=du\]
+So we have
+\begin{eqnarray*}
+\int x(x+1)^{50}\dx &=& \int(u-1)u^{50}\dx[u] \\
+&=& \int u^{51}\dx[u] -\int u^{50}\dx[u] \\
+&=& \frac{1}{52}u^{52}-\frac{1}{51}u^{51}+c \\
+&=& \frac{1}{52}(x+1)^{52}-\frac{1}{51}(x+1)^{51}+c
+\end{eqnarray*}
+Check:
+\[\frac{d}{dx}\left(\frac{1}{52}(x+1)^{52}-\frac{1}{51}(x+1)^{51}+c\right)=(x+1)^{51}-(x+1)^{50}=(x+1)^{50}\cdot x,\]
+which is correct.
+\end{example}
+
+\begin{example}
+\[\int\frac{1}{x\ln x}\dx\]
+Let $u=\ln x$
+\[\frac{du}{dx}=\frac{1}{x}\]
+\[dx=x\dx[u]\]
+\begin{eqnarray*}
+\int \frac{1}{x\ln x}\dx &=& \int\frac{1}{xu}\cdot x\dx[u] \\
+&=& \int \frac{1}{u}\dx[u] \\
+&=& \ln |u|+c \\
+&=& \ln|\ln x|+c.
+\end{eqnarray*}
+Check:
+\[\frac{d}{dx}\left(\ln|\ln x|\right)=\frac{1}{\ln x}\cdot \frac{1}{x},\]
+which is correct.
+\end{example}
+
+\begin{example}
+\[\int\frac{1}{1+\sqrt{x}}\dx\]
+Let $u=1+\sqrt{x}$.
+\[\frac{du}{dx}=\frac{1}{2}x^{-\frac{1}{2}}\]
+\[dx=2x^{\frac{1}{2}}\dx[u]=2(u-1)\dx[u]\]
+\begin{eqnarray*}
+\int \frac{1}{1+\sqrt{x}}\dx &=& \int \frac{1}{u}\cdot2(u-1)\dx[u] \\
+&=& 2\int\left(1-\frac{1}{u}\right)\dx[u] \\
+&=& 2\int\dx[u]-2\int\frac{1}{u}\dx[u] \\
+&=& 2u-2\ln|u| +c\\
+&=& 2(1+\sqrt{x})-2\ln |1+\sqrt{x}| +c.
+\end{eqnarray*}
+Check:
+\[\frac{d}{dx}\left( 2(1+\sqrt{x})-2\ln |1+\sqrt{x}| +c\right) = \frac{1}{\sqrt{x}}-\frac{1}{\sqrt{x}(1+\sqrt{x})} =\frac{1+\sqrt{x}-1}{\sqrt{x}(1+\sqrt{x})}=\frac{1}{1+\sqrt{x}}.\]
+\end{example}
+
+\begin{example}
+\[\int\sin(3x+1)\dx\]
+Let $u=3x+1$.
+\[\frac{du}{dx}=3\]
+\[dx=\frac{1}{3}\d[u]\]
+\begin{eqnarray*}
+\int\sin{3x+1}\dx &=& \frac{1}{3}\int\sin u\dx[u] \\
+&=& -\frac{1}{3}\cos u + c \\
+&=& -\frac{1}{3}\cos(3x+1) + c.
+\end{eqnarray*}
+Check:
+\[\frac{d}{dx}\left(-\frac{1}{3}\cos(3x+1)+c\right)=+\frac{1}{3}\cdot3\cdot\sin(3x+1)=\sin(3x+1).\]
+\end{example}
+
+\begin{example}
+\[\int\frac{\sin\left(\frac{1}{x}\right)}{x^2}\dx\]
+Let $u=\frac{1}{x}$.
+\[\frac{du}{dx}=-\frac{1}{x^2}\]
+\[dx=-x^2\dx[u]\]
+\begin{eqnarray*}
+\int\frac{\sin\left(\frac{1}{x}\right)}{x^2}\dx &=& \int \frac{\sin u}{x^2}\cdot(-x^2)\dx[u] \\
+&=& -\int\sin u \dx[u] \\
+&=& \cos u + c \\
+&=& \cos\left(\frac{1}{x}\right) + c.
+\end{eqnarray*}
+Check:
+\[\frac{d}{dx}\left(\cos\left(\frac{1}{x}\right) + c\right)=-\sin\left(\frac{1}{x}\right)\cdot\left(-x^{-2}\right)=\frac{\sin\left(\frac{1}{x}\right)}{x^2},\]
+which is correct.
+\end{example}

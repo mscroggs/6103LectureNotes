@@ -1,0 +1,186 @@
+\chapter{Differential Equations}
+
+In many applications, we have equations relating a functions and its derivatives. For example:
+
+\begin{itemize}
+\item[ ] In radioactive decay, we know $\displaystyle \frac{dy}{dt} = \lambda y$, where $y$ is the number of particles of radioactive material.
+\item[ ] Inflation is expressed as a percentage of current prices, so $\displaystyle \frac{dp}{dt} = i p$, where $p$ is prices and $i$ is inflation.
+\item[ ] The movement of an object on a spring follows the equation $\displaystyle \frac{d^2 y}{dx^2} = -\omega y$.
+\end{itemize}
+
+Equations like these are called \textbf{(ordinary) differential equations} or \textbf{ODEs}.
+
+In this chapter we will look at methods for solving ODEs.
+
+\section{Terminology}
+\begin{definition}
+An equation involving $y$ and $\displaystyle\frac{dy}{dx}$ is called a \textbf{first order} ODE.
+
+An equation involving $y$, $\displaystyle\frac{dy}{dx}$ and $\displaystyle\frac{d^2y}{dx^2}$ is called a \textbf{second order} ODE.
+
+When solving ODEs, solutions involving constants often appear. These are called \textbf{general solutions} of ODEs.
+\end{definition}
+
+Extra information is often given to give the constants in the general solution a value.
+
+\begin{definition}
+The extra information given is called the \textbf{boundary conditions}.
+
+A problem with an ODE and boundary conditions is called an \textbf{initial value problem} or \textbf{IVP}.
+\end{definition}
+
+\begin{definition}
+An $n$-th order differential equation is linear if it can be written in the form:
+\begin{equation*}
+y^{(n)}+a_{n-1}(x)y^{(n-1)}+a_{n-2}(x)y^{(n-2)}+\dots+a_{1}(x)y'+a_{0}(x)y=f(x),
+\end{equation*}
+or
+\begin{equation*}
+\frac{d^ny}{dx^n}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+a_{n-2}(x)\frac{d^{n-2}y}{dx^{n-2}}+\dots+a_1(x)\frac{dy}{dx}+a_0(x)y=f(x),
+\end{equation*}
+where $a_i$ ($i=0,1,2,\dots,n$) and $f$ are known functions of $x$. 
+\end{definition}
+
+\begin{example}
+\(y'+2y=e^x\) is a first-order linear differential equation.
+
+\(yy'=x\) is a first-order non-linear differential equation.
+
+\(y'' - e^xy' + y=x\) is a second-order linear differential equation.
+\end{example}
+
+\begin{definition}
+If $f(x)\equiv0$, then the differential equation is said to be \textbf{homogeneous}; otherwise, we say the equation is \textbf{non-homogenous} or \textbf{inhomogenous}.
+\end{definition}
+
+\begin{example}
+\(y'+2y=e^x\) is a non-homogeneous differential equation.
+
+\(y'+2y=0\) is a homogeneous differential equation.
+\end{example}
+
+\section{First order differential equations}
+Here we will consider different techniques to solve first order ODEs.
+
+\subsection{Separation of variables}
+First order ODEs can be written in the form \[\frac{dy}{dx}=f(x,y).\]
+For example
+\begin{itemize}
+\item[ ] $y'=-2xy+e^x$,
+\item[ ] $\frac{dy}{dx}=\pm \sqrt{x^3-2\ln y+4e^x}$,
+\item[ ] $y'=x/y^2$.
+\end{itemize}
+
+\begin{definition}
+A function $f(x,y)$ is \textbf{separable} if it can be written as
+\[f(x,y)=g(x)h(y).\]
+\end{definition}
+
+\begin{example}
+Let \(\displaystyle f(x,y)=\frac{x}{y^2}=x\cdot\frac{1}{y^2}\).
+
+This is seperable because
+\[\frac{x}{y^2} = x\cdot\frac{1}{y^2}\]
+so \(f(x,y) = g(x)h(y)\) where
+\begin{align*}
+g(x) &= x\\
+h(y) &= \frac{1}{y^2}
+\end{align*}
+\end{example}
+
+When $f$ is seperable, we can solve \(\displaystyle\frac{dy}{dx}=f(x,y)\) by a method called \textbf{separating the variables}.
+
+\begin{example}
+Consider the differential equation 
+\[y'=\lambda y.\]
+We already know the solution to this equation. Now let us see how to derive it using separation of variables.
+\[\frac{dy}{dt}=\lambda y,\]
+taking all things relating to $y$ to the left, and for $t$ to the right, we have
+\[\frac{1}{y}dy=\lambda dt.\]
+Integrating both sides we have
+\[\int \frac{1}{y}\dx[y]=\int\lambda\dx[t],\]
+hence, using what we have learnt in previous chapters we get
+\[\ln y=\lambda t+C.\]
+Finally, re-arranging for $y$, we have
+\[y=e^{\lambda t+C}=Ae^{\lambda t},\quad A=e^C.\]
+\end{example}
+
+\begin{example}
+Consider the equation
+\[\frac{dy}{dx}=xy,\]
+following the procedure as in the previous example, we have
+\[\frac{1}{y}\dx[y]=x\dx.\]
+Integrating both sides we have
+\begin{eqnarray*}
+&&\int\frac{1}{y}\dx[y]=\int x\dx,\\
+&\implies& \quad \ln y=\frac{1}{2}x^2 +C.
+\end{eqnarray*}
+Taking exponentials of both sides in order to re-arrange for $y$, we get
+\[y=e^{\frac{1}{2}x^2+C}=Ae^{\frac{1}{2}x^2},\quad A=e^C.\]
+We can check if this satisfies the original equation:
+\[\frac{dy}{dx}=\frac{d}{dx}\left(Ae^{\frac{1}{2}x^2}\right)=Ae^{\frac{1}{2}x^2+}\cdot\frac{1}{2}\cdot2x=xy.\]
+\end{example}
+
+\begin{example}
+Consider the differential equation
+\[y^2y'=x.\]
+We first write it in the form $y'=f(x,y)$, i.e.
+\[\frac{dy}{dx}=\frac{x}{y^2},\]
+now we realises that we can apply separation of variable, so
+\[y^2dy=x\dx,\]
+\begin{eqnarray*}
+&\implies& \quad \int y^2dy=\int x\dx\\
+&\implies& \quad \frac{1}{3}y^3=\frac{1}{2}x^2+C,\\
+&\implies& \quad y=\left(\frac{3}{2}x^2+C'\right)^{\frac{1}{3}},
+\end{eqnarray*}
+where $C'$ is some constant (different to $C$, since we multiplied through by $3$). Again, we check the solution satisfies the equation
+\begin{eqnarray*}
+\frac{dy}{dx}&=&\frac{d}{dx}\left[\left(\frac{3}{2}x^2+C'\right)^{\frac{1}{3}}\right] \\
+&=&\frac{1}{3}\left(\frac{3}{2}x^2+C'\right)^{-\frac{2}{3}}\cdot\frac{3}{2}\cdot2x \\
+&=& x\left(\frac{3}{2}x^2+C'\right)^{-\frac{2}{3}} \\
+&=& x\left[\left(\frac{3}{2}x^2+C'\right)^{\frac{1}{3}}\right]^{-2} \\
+&=&\frac{x}{y^2}.
+\end{eqnarray*}
+\end{example}
+
+\begin{example}
+Consider the following initial-value problem:
+\[\frac{dy}{dx}=y^2(1+x^2),\quad y(0)=1.\]
+First, we find the general solution, note, we can use separation of variables in this example, so
+\[\frac{1}{y^2}\dx[y]=(1+x^2)\dx\]
+\begin{eqnarray*}
+&\implies& \quad \int\frac{1}{y^2}\dx[y]=\int(1+x^2)\dx \\
+&\implies& -\frac{1}{y}=x+\frac{1}{3}x^3+C \\
+&\implies&\quad y=-\frac{1}{x+\frac{1}{3}x^3+C}.
+\end{eqnarray*}
+Now check that the general solution satisfies the original differential equation:
+\[\frac{dy}{dx}=\frac{d}{dx}\left(-\frac{1}{x+\frac{1}{3}x^3+C}\right)=\frac{1+x^2}{\left(x+\frac{1}{3}x^3+C\right)^2}=(1+x^2)y^2.\]
+
+Now it remains to find the constant $C$, by applying the condition $y(0)=1$, i.e. we put $x=0$.
+\[y(0)=-\frac{1}{0+\frac{1}{3}\cdot0^3+C}=-\frac{1}{C}=1,\quad\implies\quad C=-1.\]
+So the solution to the initial value problem is
+\[y=\frac{1}{1-x-\frac{1}{3}x^3}.\]
+\end{example}
+
+\begin{example}
+Consider the initial value problem
+\[e^y y'=3x^2,\quad y(0)=2.\]
+First, find the general solution,
+\begin{eqnarray*}
+&&e^y y'=3x^2 \\
+&\implies& \frac{dy}{dx}=3x^2e^{-y} \\
+&\implies& e^y\dx[y]=3x^2\dx \\
+&\implies& \int e^y\dx[y]=\int 3x^2\dx \\
+&\implies& e^y=x^3+C\\
+&\implies& y=\ln(x^3+C).
+\end{eqnarray*}
+Check:
+\[\frac{dy}{dx}=\frac{d}{dx}\left( \ln(x^3+C)\right)=\frac{3x^2}{x^3+C}=3x^2\frac{1}{x^3+C}.\]
+Recall $e^{\ln(a)}=a$, using this, we can write
+\[\frac{dy}{dx}=3x^2e^{\ln\left( \frac{1}{x^3+C}\right)}=3x^2e^{-\ln(x^3+C)}=3x^2e^{-y}.\]
+Now we apply the initial condition,
+\[y(0)=\ln(C)=2\quad \implies\quad C=e^2,\]
+so we have the final solution
+\[y(x)=\ln (x^3+e^2).\]
+\end{example}
+

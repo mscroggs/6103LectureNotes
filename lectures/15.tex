@@ -1,0 +1,39 @@
+\subsection{Trigonometric substitution}
+\begin{example}
+We know that 
+\[\int \frac{1}{\sqrt{1-x^2}}dx=\sin^{-1}x+c,\]
+since 
+\[\frac{d}{dx}(\sin^{-1}x)=\frac{1}{\sqrt{1-x^2}}.\]
+
+Actually, we can work out this integral by a substitution like $x=\sin u$ because we know that
+\[1-\sin^2u=\cos^2u,\]
+and 
+\[\frac{dx}{du}=\cos u\quad \text{or} \quad dx=\cos u\dx[u].\]
+Thus, we calculate the integral as
+\[\int \frac{1}{\sqrt{1-x^2}}\dx=\int\frac{\cos u}{\sqrt{1-\sin^2u}}\dx[u]=\int\dx[u]=u+c=\sin^{-1}x+c.\]
+\end{example}
+
+\begin{example}
+\[\int\frac{1}{1+x^2}\dx=\tan^{-1}x+c,\quad \text{since}\quad \frac{d}{dx}(\tan^{-1}x)=\frac{1}{1+x^2}.\]
+Let us try the following
+\[x=\tan\theta\]
+\[\frac{dx}{d\theta}=\frac{1}{\cos^2\theta}=1+\tan^2\theta\]
+\[dx=(1+\tan^2\theta)\dx[\theta]\]
+\[\int\frac{1}{1+x^2}\dx=\int\frac{1}{1+\tan^2\theta}(1+\tan^2\theta)\dx[\theta]=\int\dx[\theta]=\theta+c=\tan^{-1}x+c.\]
+\end{example}
+
+\begin{example}
+\[\int\frac{1}{1+2x^2}\dx\]
+This is similar to the previous example. If we try
+\[\sqrt{2}x=\tan\theta\]
+\[dx=\frac{1}{\sqrt{2}}(1+\tan^2\theta)\dx[\theta]\]
+\[\theta=\tan^{-1}(\sqrt{2}x)\]
+\begin{eqnarray*}
+\int\frac{1}{1+2x^2}\dx &=& \int\frac{1}{1+(\sqrt{2}x)^2}\dx \\
+&=&\frac{1}{\sqrt{2}}\int\frac{1}{1+\tan^2\theta}(1+\tan^2\theta)\dx[\theta] \\
+&=& \frac{1}{\sqrt{2}}\theta+c \\
+&=& \frac{1}{\sqrt{2}}\tan^{-1}(\sqrt{2}x)+c.
+\end{eqnarray*}
+\end{example}
+
+

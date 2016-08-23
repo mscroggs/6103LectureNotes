@@ -1,0 +1,75 @@
+\section{Complementary functions and particular integrals}
+
+In the previous three examples, we gained the following results:
+\[y=\frac{1}{3}x^2+c\cdot.\frac{1}{x},\]
+\[y=1+c\cdot e^{-\frac{1}{2}x^2},\]
+\[y=-(x^2+2x+2)+ce^x.\]
+
+These examples have something very important in common, that is the solutions have the following form
+\[y=f(x)+cg(x),\]
+with explicit functions $f$ and $g$.
+
+\begin{definition}
+When \(y=f(x) + cg(x)\) is the solution of an ODE, \(f\) is called the \textbf{particular integral} (P.I.) and \(g\) is called the \textbf{complementary function} (C.F.).
+\end{definition}
+
+We can use particular integrals and complementary functions to help solve ODEs if we notice that:
+\begin{enumerate}
+\item The complementary function ($g$) is the solution of the homogenous ODE.
+\item The particular integral ($f$) is any solution of the non-homogenous ODE.
+\end{enumerate}
+
+\begin{example}
+We will use complementary functions and particular integrals to solve
+\[y'+\lambda y=p(x),\quad \lambda \text{ is constant.}\]
+We know that the general solution is 
+\[y(x)=\underbrace{f(x)}_{\text{particular integral (P.I.)}}+\underbrace{Cg(x)}_{\text{complementary function (C.F.)}},\]
+where
+\[f'+\lambda f=p(x),\]\[g'+\lambda g=0,\]
+and $C$ is the constant of integration.
+
+We start by finding $g$. We need to solve
+\[g'+\lambda g=0.\]
+The solution of this is
+\[g=Ce^{-\lambda x}.\]
+[This can be found be separating the variables or by inspection.]
+
+Therefore, the general solition to $y'+\lambda y=p(x)$ is
+\[y=f(x)+Ce^{-\lambda x},\]
+where $f$ is a particular integral.
+\end{example}
+
+The value of $f$ depends on $p$. To find $f$, we make a guess at what it might look like then see if we are right.
+
+\begin{example}[$p(x)=x$]
+Consider the differential equation
+\[y'+y=x,\]
+so we have
+\[\lambda=1,\quad p(x)=x.\]
+The solution of this ODE will be of the form \[y=f(x)+Ce^{-x}.\]
+
+We can guess that $f$ should be a polynomial with a degree of one, since $p(x)=x$. So we try the most general first order polynomial, $f(x)=ax+b$, and so $f'(x)=a$. Substituting $y=f(x)$ into the differential equation we have that
+\begin{align*}f'+f&=a+ax+b\\&=ax+(a+b).\end{align*}
+And so \[x\equiv ax+(a+b).\]
+Thus, comparing coefficients from the LHS and RHS we must have that
+\begin{align*}
+    \left. \begin{array}{l}
+	a=1 \\
+	a+b=0
+    \end{array}\right\}
+    \quad \implies \quad
+        \left. \begin{array}{l}
+	a=1 \\
+	b=-1
+    \end{array}\right\} 
+    \quad\implies \quad f(x)=x-1,
+\end{align*}
+so $f(x)=x-1$ is the particular integral. Therefore, the general solution to the original equation is
+\[y(x)=x-1+Ce^{-x}.\]
+\end{example}
+
+When we solve higher order linear ODEs, we use a similar method:]
+\begin{enumerate}
+\item We solve the homogenous equation to find the complementary function.
+\item We guess the form of the particular integral then try it.
+\end{enumerate}

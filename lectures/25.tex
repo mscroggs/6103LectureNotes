@@ -1,0 +1,88 @@
+\subsection{Finding a particular integral}
+
+The particular integral depends on the function $p(x)$. We only consider three categories of $p(x)$:
+\begin{itemize}
+\item[1.] polynomials
+\item[2.] trigonometric functions
+\item[3.] exponential functions
+\end{itemize}
+
+\subsubsection{$p$ is a polynomial}
+When $p$ is a polynomial, we guess that the particular integral will be a polynomial of the same order.
+
+\begin{example} 
+Find the general solution to the differential equation
+\[y''+2y'+y=x^2.\]
+Recall, the general solution takes the form $y=f(x)+g(x)$.
+Using the method in the previous section, we know that the C.F. is
+\[g(x)=c_1e^{-x}+c_2xe^{-x}\] or \[g(x)=(c_1+c_2x)e^{-x}.\]
+
+Next, we must find the particular integral (P.I.), we try 
+\[f(x)=ax^2+bx+x.\]
+We find
+\[f'(x)=2ax+b,\quad f''(x)=2a.\]
+Substituting into the differential equation gives
+\begin{align*}
+f''+2f'+f &= 2a+2(2ax+b)+ax^2+bx+c \\
+&= ax^2 +(4a+b)x +2a +2b+ c \\
+&\equiv x^2.
+\end{align*}
+Comparing coefficients between the LHS and the RHS we have
+\begin{align*}
+    \left. \begin{array}{l}
+	a=1 \\
+	4a+b=0 \\
+	2a+2b+c=0
+    \end{array}\right\}
+    \quad \implies \quad
+        \left. \begin{array}{l}
+	a=1 \\
+	b=-4 \\
+	c=6
+    \end{array}\right\} 
+    \quad\implies \quad f(x)=x^2-4x+6,
+\end{align*}
+Finally, we can write the general solution as
+\[y(x)=x^2-4x+6+(c_1+c_2x)e^{-x}.\]
+\end{example}
+
+\subsubsection{$p$ is a trigonometric function}
+If $p$ is a $\sin$ or $\cos$, we guess that the particular integral will involve $\sin$ and $\cos$.
+
+\begin{example}
+Solve the following initial-value problem:
+\[y''-2y'+y=\sin x,\quad y(0)=-2,\quad y'(0)=2.\]
+[Notice that we have two boundary conditions here because second order differential equations have two constants of integration to be found.]
+
+The C.F. for this problem is
+\[g(x)=(c_1+c_2x)e^x.\]
+To find the P.I. we try 
+\[f=a\sin x+b\cos x.\]
+We find
+\[f'=a\cos x-b\sin x,\quad f''= -a\sin x -b\cos x.\]
+Substituting into the differential equation we have
+\begin{align*}
+f''-2f'+f &=  -a\sin x -b\cos x-2a\cos x +2b\sin x+a\sin x+b\cos x \\
+&= (-a+2b+a)\sin x+(-b-2a+b)\cos x \\
+&= 2b \sin x - 2a\cos x \\
+&\equiv \sin x.
+\end{align*}
+Comparing coefficients, we have
+\[a=0,\quad b=\frac{1}{2} \quad \implies \quad f=\frac{1}{2}\cos x.\]
+Therefore the general solution to the initial-value problem is 
+\[y(x)=\frac{1}{2}\cos x + (c_1+c_2x)e^x.\]
+In order to find the unknown constants $c_1$ and $c_2$ using the boundary conditions, we need to find $y'(x)$, so we differentiate the above to give:
+\begin{align*}
+y'(x)&=-\frac{1}{2}\sin x +c_2e^x+(c_1+c_2x)e^x\\
+&=-\frac{1}{2}\sin x + (c_1+c_2+c_2x)e^x
+\end{align*}
+The boundary conditions give:
+\begin{align*}
+y(0)&=\frac{1}{2}\cos0+e^0(c_1+c_2\cdot0)\\&=\frac{1}{2}+c_1=-2\\
+y'(0)&=-\frac{1}{2}\sin0+e^0(c_1+c_2+c_2\cdot0)\\&=c_1+c_2=2\end{align*}
+
+Thus, we have the constants
+\[c_1=-\frac{5}{2}, \quad  c_2=2-c_1=2+{5}{2}=\frac{9}{2}.\]
+Finally, the solution to the initial value problem is
+\[y(x)=\frac{1}{2}\cos x +\frac{1}{2}e^x(9x-5).\]
+\end{example}

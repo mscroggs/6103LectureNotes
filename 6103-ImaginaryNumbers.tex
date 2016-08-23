@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage{lecturestyle}
+
+
+\begin{document}
+\section*{Deriving the solution when the auxiliary equation has no real roots}
+
+When solving the ODE \[y'' + Ay' + B = 0,\] the auxiliary equation sometimes has no real roots. In this case, the solution is 
+\[g(x)=e^{\alpha x}\left( c_1\cos \beta x + c_2\sin \beta x \right),\]
+where \[\alpha=-\frac{A}{2}\] and \[\beta=\frac{\sqrt{4B-A^2}}{2}.\]
+
+This document covers how this solution can be derived.
+
+\subsection*{Complex numbers}
+The following facts about complex numbers will be used:
+\begin{enumerate}
+\item \(\displaystyle i=\sqrt{-1}\)
+\item \(\displaystyle e^{i\theta} = \cos\theta+i\sin\theta\)
+\end{enumerate}
+
+\subsection*{The derivation}
+
+Start with the ODE:
+
+\[y''+Ay'+B=0\]
+
+The auxilliary equation is:
+
+\[\lambda^2+A\lambda+B=0\]
+
+The solutions to this are given by:
+
+\[\lambda = \frac{-A\pm\sqrt{A^2-4B}}{2}\]
+
+When $A^2-4B<0$, then there are no real solutions for $\lambda$. In this case:
+
+\begin{align*}
+\lambda
+&= \frac{-A\pm\sqrt{A^2-4B}}{2}\\
+&= \frac{-A\pm i\sqrt{4B-A^2}}{2}\\
+&= \frac{-A}{2}\pm i\frac{\sqrt{4B-A^2}}{2}
+\end{align*}
+
+Let \[\alpha = -\frac{A}{2}\] and \[\beta=\frac{4B-A^2}{2}.\]
+
+These are both real numbers. Therefore, the solutions of the auxilliary equation are:
+\[\lambda_1 = \alpha + i\beta\quad\text{and}\quad\lambda_2 = \alpha - i\beta\]
+
+This means that the C.F. of the ODE is:
+\[y(x) = c_1e^{(\alpha + i\beta)x}+c_2e^{(\alpha - i\beta)x}\]
+
+This can be simplified as follows:
+
+\begin{align*}
+y(x)
+&= c_1e^{(\alpha + i\beta)x}+c_2e^{(\alpha - i\beta)x}\\
+&= c_1e^{\alpha x} e^{i\beta x}+c_2e^{\alpha x}e^{- i\beta x}\\
+&= e^{\alpha x}\left(c_1e^{i\beta x}+c_2e^{- i\beta x}\right)\\
+&= e^{\alpha x}\left(c_1\cos(\beta x) + c_1i\sin(\beta x) +c_2\cos(-\beta x) + c_2i\sin(-\beta x)\right)\\
+&= e^{\alpha x}\left(c_1\cos(\beta x) + c_1i\sin(\beta x) +c_2\cos(\beta x) - c_2i\sin(\beta x)\right)\\
+&= e^{\alpha x}\left((c_1+c_2)\cos(\beta x) + (c_1i-c_2i)\sin(\beta x)\right)\\
+&= e^{\alpha x}\left(c_3\cos(\beta x) + c_4\sin(\beta x)\right)\\
+\end{align*}
+
+
+\end{document}

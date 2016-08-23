@@ -1,0 +1,94 @@
+\subsubsection{$p$ is an exponential function}
+If $p$ is an exponential function then we guess that the particular integral will be an exponential function.
+\begin{example}
+Find the general solution of the following differential equation,
+\[y''+4y'+3y=5e^{4x}.\]
+The auxiliary equation is
+\[\lambda^2+4\lambda+3=0\quad\iff\quad(\lambda+1)(\lambda+3)=0.\]
+Hence, this has two distinct real roots, namely $\lambda_1=-1$, $\lambda_2=-3$. So the C.F. (from the homogeneous equation) is given by
+\[g(x)=c_1e^{-x}+c_2e^{-3x}.\]
+To find the P.I. we try
+\[f=ae^{4x},\]
+since $p(x)=5e^4x$. Differentiating, we have
+\[f'=4a^{4x},\quad f''=16a^{4x}.\]
+Substituting into the differential equation we see that
+\begin{align*}
+f''+4f'+3f&=16ae^{4x}+16ae^{4x}+3ae^{4x}\\
+&=35ae^{4x}\\
+&=35ae^{4x}&\equiv 5e^{4x}.
+\end{align*}
+Therefore we have $a=1/7$ and so the P.I. is
+\[f=\frac17e^{4x}.\]
+Finally, the general solution is
+\[y(x)=\frac17e^{4x}+c_1e^{-x}+c_2e^{-3x}.\]
+\end{example}
+
+\begin{example}
+Solve the initial-value problem given by
+\[y''+4y'+3y=e^{-x},\quad y(0)=0,\quad y'(0)=0.\]
+We know from the example above that the C.F. is 
+\[c_1e^{-x}+c_2e^{-3x},\]
+
+Now let us find the P.I., if we try $f=ae^{-x}$, we know that it wouldn't work since $ae^{-x}$ is actually a solution to the homogeneous equation $y''+4y'+3y=0$. Therefore, we try 
+\[f=axe^{-x},\]
+thus
+\[f'=ae^{-x}-axe^{-x},\quad \text{and}\quad f''=-2ae^{-x}+axe^{-x}.\]
+Substituting into the differential equation we have
+\begin{align*}
+f''+4f'+3f &= -2ae^{-x}+axe^{-x}+4ae^{-x}-4axe^{-x}+3axe^{-x} \\
+&= 2ae^{-x}\\
+&\equiv e^{-x}.
+\end{align*}
+Therefore we must have $a=1/2$ and so the general solution to the differential equations is
+\[y(x)=\frac{1}{2}xe^{-x}+c_1e^{-x}+c_2e^{-3x}.\]
+Differentiating the general solution we have
+\[y'(x)=\frac{1}{2}e^{-x}-\frac{1}{2}xe^{-x}-c_1e^{-x}-3c_2e^{-3x}.\]
+Putting $x=0$, we have (from the initial conditions)
+\begin{align*}
+    \left. \begin{array}{l}
+	y(0)=c_1+c_2=0 \\
+	y'(0)=\frac{1}{2}-c_1-3c_2=0
+    \end{array}\right\}
+    \quad \implies \quad
+        \left. \begin{array}{l}
+	c_1=-\frac{1}{4} \\
+	c_2=\frac{1}{4}
+    \end{array}\right.,
+\end{align*}
+thus
+\[y(x)=\frac{1}{2}xe^{-x}-\frac{1}{4}e^{-x}+\frac{1}{4}e^{-3x},\]
+is the solution to the initial-value problem.
+\end{example}
+
+\begin{example}
+Find the general solution to the equation
+\[y''+2y'+y=2e^{-x}.\]
+
+\underline{Find the C.F.}: The auxiliary equation is
+\begin{align*}
+\lambda^2+2\lambda+1&=0\\
+(\lambda+1)^2&=0\\
+\lambda_1&=-1
+\end{align*}
+
+We have a repeated root so
+\[g(x)=c_1e^{-x}+c_2xe^{-x}.\]
+Here $e^{-x}$ and $xe^{-x}$ are two independent solutions to the homogeneous equation
+\[y''+2y'+y=0.\]
+
+\underline{Find a P.I.}: We have to try 
+\[f=ax^2e^{-x},\]
+since $e^{-x}$ and $xe^{-x}$ can't be the solution to the original differential equation as they satisfy the homogeneous equation.
+The derivatives are:
+\begin{align*}
+f'&=2axe^{-x}-ax^2e^{-x}\\\\
+f''&=2ae^{-x}-2axe^{-x}-2axe^{-x}+ax^2 e^{-x}\\&=axe^{-x}-4axe^{-x}+2ae^{-x}\end{align*}
+Substituting $y=f(x)$ into the differential equation, we have:
+\begin{align*}
+f''+2f'+f &= ax^2e^{-x}-4axe^{-x}+2ae^{-x}+4axe^{-x}-2ax^2e^{-x}+ax^2e^{-x} \\
+&=2ae^{-x} \\
+2ae^{-x}&\equiv 2e^{-x}
+\end{align*}
+Therefore $a=1$. So finally, we have the general solution
+\[y(x)=(c_1+c_2x+x^2)e^{-x}.\]
+\end{example}

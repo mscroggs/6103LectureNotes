@@ -1,0 +1,113 @@
+\subsection{Integrating factors}
+Homogenous first order linear ODEs can be solved by seperating the variables. Non-homogenous ODEs cannot. In this section we will look at how to 
+solve non-homogenous first order linear ODEs.
+
+A first order linear ODE looks like
+\begin{equation*}
+\frac{dy}{dx}+g(x)y=f(x).
+\end{equation*}
+
+When \(f(x)\) is not zero, the ODE is non-homogenous.
+First order non-homogenous ODEs can be solved using integrating factors.
+
+\begin{definition}
+The \textbf{integrating factor} of the ODE 
+\[\frac{dy}{dx}+g(x)y=f(x).\]
+is 
+\[\exp\left({\int g(x)\dx}\right).\]
+When finding the integrating factor we can ignore the constant of integration.
+\end{definition}
+
+If we multiply each term by the integrating factor, it should make our equation easier to solve.
+To solve 
+\[\frac{dy}{dx}+g(x)y=f(x),\]
+let \[T(x)=\int g(x)\dx,\]
+so that the integrating factor is \[e^{T(x)}.\]
+Multiplying through by the integrating factor gives
+\[e^{T(x)}\frac{dy}{dx}+e^{T(x)}g(x)y=e^{T(x)}f(x),\]
+
+By the product rule, we can find the derivative of $e^{T(x)}y$:
+\begin{align*}
+\frac{d}{dx}\left(e^{T(x)}y\right) &=e^{T(x)}\frac{dy}{dx}+y\frac{d}{dx}\left(e^{T(x)}\right) \\
+&=e^{T(x)}\frac{dy}{dx}+ye^{T(x)}\frac{d}{dx}\left(T(x)\right) \\
+&=e^{T(x)}\frac{dy}{dx}+ye^{T(x)}q(x)
+\end{align*}
+This is exactly what we had on the left hand side of the ODE after multiplying by the integrating factor. Therefore:
+\begin{align*}
+\frac{d}{dx}\left(e^{T(x)}y\right) &= e^{T(x)}f(x)\\
+e^{T(x)}y &= \int e^{T(x)}f(x)\dx\\
+y &= \frac{\int e^{T(x)}f(x)\dx}{e^{T(x)}}\\
+\end{align*}
+
+If we know how to integrate \(e^{T(x)}f(x)\), then we can use this method to solve the ODE.
+
+\begin{example}
+Consider the differential equation
+\[\frac{dy}{dx}+\frac{y}{x}=x.\]
+[note that $f(x,y)=x-(y/x)$ can't be separated.]
+
+The integrating factor is:
+\begin{align*}
+\exp\left(\int\frac{1}{x}\dx\right)
+&=\exp\left(\ln x\right)\\
+&=x
+\end{align*}
+
+Multiplying through by the integrating factor gives:
+\[x\frac{dy}{dx}+y=x^2\]
+
+Notice that: \[\frac{d}{dx}\left(xy\right) = x\frac{dy}{dx}+y\]
+
+Therefore:
+\begin{align*}
+\frac{d}{dx}\left(xy\right) &= x^2\\
+xy &= \int x^2\dx\\
+&= \frac{x^3}{3} +c\\
+y &= \frac{x^2}{3} +\frac{c}{x}\\
+\end{align*}
+
+\end{example}
+
+\begin{example}
+\begin{align*}
+\frac{dy}{dx}+xy&=x\\
+\exp\left(\int x\dx\right)\frac{dy}{dx}+\exp\left(\int x\dx\right)xy&=\exp\left(\int x\dx\right)x\\
+\exp\left(\frac{1}{2}x^2\right)\frac{dy}{dx}+\exp\left(\frac{1}{2}x^2\right)xy&=\exp\left(\frac{1}{2}x^2\right)x\\
+\frac{d}{dx}\left(\exp\left(\frac{1}{2}x^2\right)y\right)&=\exp\left(\frac{1}{2}x^2\right)x\\
+\exp\left(\frac{1}{2}x^2\right)y&=\int \exp\left(\frac{1}{2}x^2\right)x\dx\\
+\exp\left(\frac{1}{2}x^2\right)y&=\exp\left(\frac{1}{2}x^2\right)\\
+y&=\frac{\exp\left(\frac{1}{2}x^2\right)+c}{\exp\left(\frac{1}{2}x^2\right)}\\
+y&=1+c\exp\left(-\frac{1}{2}x^2\right)
+\end{align*}
+Or
+\[y = 1+c e^{-\frac{1}{2}x^2}\]
+\end{example}
+
+\begin{example}
+Solve the initial-value problem
+\[y'=y+x^2,\quad y(0)=1.\]
+
+First, find the general solution:
+\begin{align*}
+\frac{dy}{dx} - y &= x^2\\
+\exp\left(\int -1 \dx\right)\frac{dy}{dx} - \exp\left(\int -1 \dx\right)y &= \exp\left(\int -1 \dx\right)x^2\\
+e^{-x}\frac{dy}{dx} - e^{-x}y &= e^{-x}x^2\\
+\frac{d}{dx}\left(e^{-x}y\right) &= e^{-x}x^2\\
+e^{-x}y &= \int e^{-x}x^2\dx\\
+&= -e^{-x}x^2 + \int2xe^{-x}\dx\\
+&= -e^{-x}x^2 - 2xe^{-x} + \int2e^{-x}\dx\\
+&= -e^{-x}x^2 - 2xe^{-x} -2e^{-x}+c\\
+y &= -x^2 - 2x -2+ce^x
+\end{align*}
+
+Now we must use the initial condition to find \(c\):
+\begin{align*}
+y &= -x^2 - 2x -2+ce^x\\
+1 &= -0^2 - 2\cdot0 -2+ce^0\\
+1 &= -2+c\\
+3 &= c
+\end{align*}
+
+Therefore the solution to the problem is \[y = -x^2 - 2x -2+3e^x.\]
+\end{example}
+

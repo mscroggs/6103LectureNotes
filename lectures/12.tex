@@ -1,0 +1,121 @@
+\section{Exponential growth and decay}
+
+Let $y=f(t)$ represent some physical quantity, such as the volume of a substance, the population of a certain species or the mass of a decaying radioactive substance. We want to measure the growth or decay of $f(t)$.
+
+In many applications, the rate of growth (or decay) of a quantity is proportional to the quantity. In other ``words":
+
+\[\frac{dy}{dt}=\alpha y,\quad \alpha=\text{constant}.\]
+
+This is a \textbf{differential equation} whose solution is
+\[y(t)=ce^{\alpha t},\]
+where constant $c$ is determined by an \textbf{initial condition}, say, $y(0)=y_0$ (given). Therefore we have
+\[y(t)=y_0e^{\alpha t}.\]
+This means that if you start with $y_0$, after time $t$ you have $y(t)$.
+
+If $\alpha>0$, the quantity is increasing (growth). If $\alpha<0$, the quantity is decreasing (decay).
+
+We will study differential equations in more detail later in the course.
+
+\subsection{Radioactive decay}
+Atoms of elements which have the same number of protons but differing numbers of neutrons are referred to as isotopes of each other. Radioisotopes are isotopes that decompose and in doing so emit harmful particles and/or radiation.
+
+It has been found experimentally that the atomic nuclei of so-called radioactive elements spontaneously decay. They do it at a characteristic rate.
+
+If we start with an amount $M_0$ of an element with decay rate $\lambda$ (where $\lambda>0$), then after time $t$, the amount remaining is
+\[M=M_0e^{-\lambda t}.\]
+This is the radioactive decay equation. The proportion left after time $t$ is 
+\[\frac{M}{M_0}=e^{-\lambda t},\]
+and the proportion decayed is 
+\[1-\frac{M}{M_0}=1-e^{-\lambda t},\]
+
+\subsection{Carbon dating} 
+Carbon dating is a technique used by archeologists and others who want to estimate the age of certain artefacts and fossils they uncover. The technique is based on certain properties of the carbon atom.
+
+In its natural state, the nucleus of the carbon atom $C^{12}$ has 6 protons and 6 neutrons. The isotope carbon-14, $C^{14}$, has 6 protons and 8 neutrons and is radioactive. It decays by beta emission.
+
+Living plants and animals do not distinguish between $C^{12}$ and $C^{14}$, so at the time of death, the ratio $C^{12}$ to $C^{14}$ in an organism is the same as the ratio in the atmosphere. However, this ratio changes after death, since $C^{14}$ is converted into $C^{12}$ but no further $C^{14}$ is taken in.
+
+\begin{example}
+Half-lives: how long before half of what you start with has decayed? When do we get $M=\frac{1}{2}M_0$? We need to solve
+\[\frac{M}{M_0}=\frac{1}{2}=e^{-\lambda t},\]
+taking logarithms of both sides gives
+\[\ln \left(\frac{1}{2}\right) = -\lambda t \quad \implies \quad t=\frac{\ln \left(2\right)}{\lambda}.\]
+So, the half-life, $T_{\frac{1}{2}}$ is given by
+\[T_{\frac{1}{2}}=\frac{\ln \left(2\right)}{\lambda}.\]
+If $\lambda$ is in ``per year", then $T_{\frac{1}{2}}$ is in years.
+\end{example}
+
+\begin{example}
+Carbon-14 ($C^{14}$) exists in plants and animals, and is used to estimate the age of certain fossils uncovered. It is also used to trade metabolic pathways. $C^{14}$ is radioactive and has a decay rate of $\lambda=0.000125$ (per year). So we can calculate its half-life as 
+\[T_{\frac{1}{2}}=\frac{\ln 2}{0.000125}\approx 5545 \text{ years}.\]
+\end{example}
+
+\begin{example}
+A certain element has $T_{\frac{1}{2}}$ of $10^6$ years
+\begin{itemize} 
+\item[1.] What is the decay rate?
+\[\lambda=\frac{\ln 2}{T_{\frac{1}{2}}}\approx \frac{0.693}{10^3}\approx 7\times10^{-7} \text{ (per year)}.\]
+
+\item[2.] How much of this will have decayed after 1000 years? The proportion remaining is
+\[\frac{M}{M_0}=e^{-\lambda t}=e^{-7\times10^{-7}\times10^3}=e^{-7\times10^{-4}}\approx0.9993.\]
+The proportion decayed is
+\[1-\frac{M}{M_0}\approx1-0.9993=0.0007.\]
+
+\item[3.] How long before 95\% has decayed?
+\[\frac{M}{M_0}=1-0.95=0.05=e^{-7\times10^{-7}t},\]
+taking logarithms of both sides we have
+\[\ln(0.05)=-7\times10^{-7}t\]
+which implies
+\[t=\frac{\ln(0.05)}{-7\times 10^{-7}}\approx\frac{-2.996}{-7\times10^{-7}}\approx4.3\times10^6 \text{ (years)}.\]
+\end{itemize}
+
+WARNING: Half-life $T_{\frac{1}{2}}$ of a particular element does not mean that in $2\times T_{\frac{1}{2}}$, the element will completely decay.
+\end{example}
+
+\subsection{Population growth}
+\begin{example}
+Suppose a certain bacterium divides each hour. Each hour the population doubles:
+\begin{center}
+    \begin{tabular}{ | c | c | l c l | c | c | c |}
+    \hline
+    Hours & 1 & 2 & 3 & 4 & 5 & $\dots$  \\ \hline
+    Population & 2 & 4 & 8 & 16 & 32 & $\dots$  \\ \hline
+    \end{tabular}
+\end{center}
+\end{example}
+After $t$ hours you have $2^t$ times more bacteria than what you started with. In general, we write it as an exponential form.
+
+If a population, initially $P_0$ grows exponentially with growth rate $\lambda$ (where $\lambda>0$), then at time $t$, the population is
+\[P(t)=P_0e^{\lambda t}.\]
+
+\begin{example}
+Bacterium divides every hour. 
+\begin{itemize}
+\item[1.] What is the growth rate?
+
+We know that when $t=1$ hour, we are supposed to have 
+\[P=2P_0,\]
+so
+\[2P_0=P_0e^{\lambda\cdot 1}\quad \implies \quad 2=e^{\lambda}\quad \implies \quad \lambda=\ln 2\approx 0.693.\]
+
+\item[2.] How long for 1 bacterium to become 1 billion?
+\[P_0=1,\quad \lambda=0.693,\quad P=10^9,\]
+therefore we may write
+\[P=P_0e^{\lambda t} \quad \implies \quad 10^9=e^{0.693 t},\]
+taking logarithms of both sides and re-arranging for $t$, we have
+\[t=\frac{9\ln 10}{0.693}\approx 30 \text{ hours.}\]
+\end{itemize}
+\end{example}
+
+\subsection{Interest rate}
+
+An annual interest rate of $5\%$ tells you that \pounds100 investment at the start of the year grows to \pounds105. Each subsequent year you leave your investment, it will be multiplied by the factor $1.05$.
+
+In general, if you initially invest $M_0$ (amount) with an annual interest rate $r$ (given as percentage/100), then after $t$ years you have
+\[A=M_0(1+r)^t,\]
+where $A$ is the future value. We could write this as an exponential as follows:
+\[A(t)=M_0e^{\lambda t}=M_0(1+r)^t.\]
+Taking logarithms we have
+\[\lambda t = t\ln(1+r),\]
+so we may write
+\[A(t)=M_0e^{\ln(1+r)t}.\]

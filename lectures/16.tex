@@ -1,0 +1,78 @@
+\subsection{Integration by parts}
+This is equivalent to the product rule for integration. Suppose we have two function $u(x)$ and $v(x)$. Then the product rule states
+\[\frac{d}{dx}(uv)=u'v+uv'.\]
+Rearranging the above gives
+\[uv'=\frac{d}{dx}(uv)-u'v.\]
+Integrating both sides we get
+\begin{eqnarray*}
+\int uv'\dx &=& \int\frac{d}{dx}(uv)\dx-\int u'v\dx \\
+&=& uv-\int u'v\dx.
+\end{eqnarray*}
+So we write the rule for integration by parts as:
+\begin{thing}{Integration by Parts}
+\begin{equation*}
+\int u\frac{dv}{dx}\dx=uv-\int v\frac{du}{dx}\dx.
+\end{equation*}
+\end{thing}
+
+\begin{example}
+\[\int xe^x\dx\]
+Let: 
+\[u=x,\quad v'=e^x\]This means that:\[ u'=1,\quad v=e^x.\]
+Therefore, we can calculate the integral as follows:
+\begin{eqnarray*}
+\int xe^x\dx &=& \int uv'\dx \\
+&=&uv-\int u'v\dx \\
+&=& xe^x-\int e^x\dx \\
+&=& xe^x-e^x + c.
+\end{eqnarray*}
+Check:
+\[\frac{d}{dx}\left[xe^x-e^x + c\right]=e^x+xe^x-e^x=xe^x.\]
+\end{example}
+
+\begin{example}
+\[\int\ln x\dx\]
+This is the same as
+\[\int1\cdot\ln x\dx\]
+We choose:
+\[u=\ln x,\quad v'=1\]This means that: \[u'=\frac{1}{x},\quad v=x.\]
+So we calculate the integral as
+\begin{eqnarray*}
+\int\ln x\dx &=& \int 1\cdot\ln x\dx \\
+&=& \int uv'\dx \\
+&=& uv- \int u'v\dx \\
+&=& x\ln x-\int\frac{1}{x}\cdot x\dx \\
+&=& x\ln x- x+c.
+\end{eqnarray*}
+Check:
+\[\frac{d}{dx}\left[x\ln x- x+c\right]=\ln x+x\cdot\frac{1}{x}-1=\ln x.\]
+\end{example}
+
+\begin{example}
+\[\int e^x\cos x\dx\]
+Let:
+\[u=\cos x,\quad v'=e^x\]This means that\[u'=-\sin x,\quad v=e^x\]
+So we write our integral as
+\begin{eqnarray*}
+\int e^x\cos x\dx &=& \int uv'\dx\\
+&=& uv-\int u'v\dx \\
+&=& e^x\cos x + \int e^x\sin x\dx.
+\end{eqnarray*}
+Now, we have an integral similar to what we started with, so let us integrate this by parts too, choosing
+\[\bar{u}=\sin x,\quad \bar{v}'=e^x \quad\quad\quad\quad \bar{u}'=\cos x,\quad \bar{v}=e^x.\]
+So our original integral becomes
+\begin{eqnarray*}
+\int e^x\cos x\dx &=&e^x\cos x + \int \bar{u}\bar{v}'\dx\\
+&=&e^x\cos x +\bar{u}\bar{v}-\int\bar{u}'\bar{v}\dx \\
+&=& e^x\cos x+ e^x\sin x-\int e^x\cos x\dx.
+\end{eqnarray*}
+Note, now on the RHS we have the same integral we started with. Rearranging this, we can make the integral the subject:
+\[\int e^x\cos x\dx  = e^x\cos x+ e^x\sin x-\int e^x\cos x\dx,\]
+\[\therefore \quad 2\int e^x\cos x\dx  = e^x\cos x+ e^x\sin x.\]
+So finally, we can write:
+\[\int e^x\cos x\dx  = \frac{1}{2}\left[ e^x\left(\cos x+ \sin x\right)\right] + c,\]
+Check:
+\[\frac{d}{dx}\left[\frac{1}{2}\left[ e^x\left(\cos x+ \sin x\right)\right] + c \right] =\frac{1}{2}\left\{e^x(\cos x+\sin x)+e^x(-\sin x+\cos x)\right\}=e^x\cos x \]
+\end{example}
+
+

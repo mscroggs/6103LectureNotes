@@ -1,0 +1,45 @@
+\section{Applications of integration}
+
+There are many real life situations in which quantities are derivatives or integrals of each other. Some are given in the table below.
+Differentiating moves to the right in the table (following the arrows). Integrating moves to the left (against the arrows).
+
+\begin{tabular}{|ccccc|}
+\hline
+Distance &$\rightarrow$& Speed &$\rightarrow$& Acceleration\\\hline
+Energy &$\rightarrow$& Force&&\\\hline
+Prices &$\rightarrow$& Inflation &$\rightarrow$& Rate of change of inflation\\\hline
+Debt &$\rightarrow$& Deficit &$\rightarrow$& Increase/reduction in deficit\\\hline
+Bank balance &$\rightarrow$& Interest &&\\\hline
+Population size &$\rightarrow$& Birth and death rates&&\\\hline
+\hline
+Something &$\rightarrow$& Rate of change of that thing &&\\\hline
+\end{tabular}
+
+All of the above would involve $\frac{d}{dt}$ as they are the rate of change of a quantity over \textbf{time}.
+
+\subsection{Finding a distance by the integral of velocity}
+If you know the velocity $v(t)$, then the distance $s$ as a function of time, i.e. $s=s(t)$, is
+\[s(t)=\int v(t)\,dt,\quad \text{(since }s'(t)=v(t)\text{)}.\]
+Similarly, if you know the acceleration $a(t)$, then the velocity can be found by the integral of $a(t)$,
+\[v(t)=\int a(t)\,dt \quad \text{(since }v'(t)=a(t)\text{)}\]
+
+\begin{example}
+A ball is thrown down from a tall building with an initial velocity of $100$ft/sec. Then its velocity after $t$ seconds is given by $v(t)=32t+100$. How far does the ball fall between 1 and 3 seconds of elapsed time?
+
+First let us write the distance as the integral of the velocity, that is
+\[s(t)=\int v(t)\,=\int 32t+100\,dt = 16t^2+100t+C.\]
+Then the distance fallen is given by
+\[s(3)-s(1)=\left.(16t^2+100t+C)\right|_{t=3} - \left.(16t^2+100t+C)\right|_{t=1}=328 \text{ ft.}\]
+Notice that
+\begin{eqnarray*}
+\left.(16t^2+100t+C)\right|_{t=3} - \left.(16t^2+100t+C)\right|_{t=1} &=& \left.(16t^2+100t+C)\right|_1^3 \\
+&=& \int_1^3 (32t+100)\,dt \\
+&=& \int_1^3 v(t)\,dt.
+\end{eqnarray*}
+\end{example}
+
+
+\subsection{Finding the area between two curves}
+\begin{example}
+To find the area between the curves $y=x^2$ and $y=50-x^2$...
+\end{example}
